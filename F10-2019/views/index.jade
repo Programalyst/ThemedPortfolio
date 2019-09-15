@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(method='POST' action='/theme')
+  div.input
+    div.form-group
+      label(for='favoriteBook') Favorite Book:
+      input#favoriteBook.form-control(type='text', placeholder='title of book' name='favoriteBook')
+  input(type="submit", value="Submit")

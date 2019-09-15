@@ -21,6 +21,10 @@
 </head>
 
 <body id="page-top">
+  <!-- direct insert chart JS script -->
+  <script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js">
+  </script>
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -394,6 +398,8 @@
             } else {
               x.style.display = "none";
             }
+            myChart.data.datasets[0].data[1] += 10;
+            myChart.update();
           };
 
           function addFMC() {
@@ -403,21 +409,13 @@
             } else {
               x.style.display = "none";
             }
+            myChart.data.datasets[0].data[0] += 1;
+            myChart.update();
           };
 
-          function updatePieChart() {
-            var x = document.getElementById("myPieChart");
-            x.data.datasets[0].data.push(21);
 
-            x.data.labels.push('blue');
-              x.data.datasets.forEach((dataset) => {
-              x.data.push(10);
-            });
-            console.log(x.data.datasets);
-            x.update();
-          };
 
-          </script>
+          </script>          
 
             <!-- Pie Chart -->
             <div class="col-xl-6 col-lg-5">
@@ -441,7 +439,8 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
+                    <!--<canvas id="myPieChart"></canvas>-->
+                    <canvas id="myChart"></canvas>
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -458,6 +457,54 @@
               </div>
             </div>
           </div>
+
+          <script>
+              var ctx = document.getElementById("myChart").getContext('2d');
+              var myChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                  labels: ["Electric Vehicles", "Smartphones", "Veganism"],
+                  datasets: [{
+                      label: 'themes',
+                      data: [35.29, 39.55, 25.16],
+                      backgroundColor: [
+                          '#4e73df', '#1cc88a', '#36b9cc'
+                      ],
+                      borderColor: [
+                          '#dddfeb','#dddfeb','#dddfeb'
+                      ],
+                      borderWidth: 1
+              
+                  }]
+              },
+              options: {
+                  maintainAspectRatio: false,
+                  title:{
+                    display:false,
+                    text:'My Investment Portfolio',
+                    fontSize:25
+                  },
+                  legend:{
+                    position: 'right'
+                  },
+                  cutoutPercentage: 75,
+                }
+              });
+              </script>
+              
+              <script>
+              function updatePieChart() {
+                  console.log(myChart.data);
+                  myChart.data.datasets[0].data.push(1);
+                  myChart.data.datasets[0].backgroundColor.push('#dddfeb');
+                  myChart.data.datasets[0].borderColor.push('#dddfeb');
+              
+                  myChart.data.labels.push('Food and Beverage');
+            
+                  myChart.update();
+              };
+              
+              </script>
 
           <!-- Content Row -->
           <div class="row">

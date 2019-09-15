@@ -26,7 +26,7 @@ router.get('/theme/:theme', function(req, res, next) {
 
   let regex = /[A-Z]{3,4}\.[A-Z]/g;
   let companies = text.match(regex);
-  res.send("hello "+req.params.theme + " \n Companies: "+companies);
+  res.send("Hurray! <br>We have found the following companies related to <b>"+req.params.theme + " </b> <br>Companies: <b> "+companies+"</b>");
 
 
 });

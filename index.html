@@ -347,7 +347,7 @@
           <div class="row">
           
             <!-- Project Card Example -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-lg-6 mb-4">
             <div class="card shadow mb-4">
               <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Holdings</h6>
@@ -380,8 +380,11 @@
               </div>
             </div>
           </div>
-          <script>document.getElementById("googHoldingDIV").style.display = "none"; </script>
-          <script>document.getElementById("fmcHoldingDIV").style.display = "none"; </script>
+
+          <script>
+          document.getElementById("googHoldingDIV").style.display = "none"; 
+          document.getElementById("fmcHoldingDIV").style.display = "none"; 
+          </script>
 
           <script>
           function addGoogle() {
@@ -391,7 +394,8 @@
             } else {
               x.style.display = "none";
             }
-          }
+          };
+
           function addFMC() {
             var x = document.getElementById("fmcHoldingDIV");
             if (x.style.display === "none") {
@@ -399,11 +403,24 @@
             } else {
               x.style.display = "none";
             }
-          }
+          };
+
+          function updatePieChart() {
+            var x = document.getElementById("myPieChart");
+            x.data.datasets[0].data.push(21);
+
+            x.data.labels.push('blue');
+              x.data.datasets.forEach((dataset) => {
+              x.data.push(10);
+            });
+            console.log(x.data.datasets);
+            x.update();
+          };
+
           </script>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-6 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -449,11 +466,6 @@
             <div class="col-lg-6 mb-4">
 
            <!-- Project Card Example -->
-           <script>
-            function myFunction() {
-              //document.getElementById("btn btn-primary").style.color = "red";
-            }
-            </script>
 
             <div class="card shadow mb-4">
               <div class="card-header py-3">
@@ -475,7 +487,7 @@
                       <tr>
                         <td><h4 class="small font-weight-bold">Restaurant Brands International Inc. NYSE: QSR</h4></td> 
                         <td>72.61 USD</td>
-                        <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#basicModal" onclick="myFunction();">Buy 1 lot</button></td>
+                        <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#basicModal" onclick="updatePieChart();">Buy 1 lot</button></td>
                       </tr>
                   </table>
                 </div>

@@ -1,3 +1,17 @@
-# themedPortfolio
+# Motive
 
-Special thanks to https://startbootstrap.com/themes/sb-admin-2/
+> We want to enable people to invest in what they beleive in
+
+
+
+This app is a prototype, showing the initial design.
+
+To run algorithm:
+`npm start`
+
+go to [](localhost:3000)
+
+To see our design:
+
+Open `index.html`
+

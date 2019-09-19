@@ -15,3 +15,5 @@ To see our design:
 
 Open `index.html`
 
+![ThemePortfolioPreview](/img/bootstrap-portfolio.jpg)
+Format: ![Alt Text](url)
